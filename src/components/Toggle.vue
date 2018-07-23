@@ -6,7 +6,7 @@
     </div>
     <modal ref="new-item" :visible="toggle">
       <p>添加新的列表</p>
-      <div slot="actions"> <button>保存</button> <button>取消</button> </div>
+      <div slot="actions"> <button @click="hahaLists">保存</button> <button>取消</button> </div>
     </modal>
     <modal ref="confirm" :visible="toggle">
       <p>删除列表？</p>
@@ -25,12 +25,19 @@ export default {
   },
   data () {
     return {
-      toggle: false
+      toggle: false,
+      data: []
     }
   },
   methods: {
     toggleModal (item) {
       this.$refs[item].myvisible = !this.$refs[item].myvisible
+    },
+    hahaLists () {
+      console.log('hahaLists clicked')
+      this.$api.haha.lists().then(res => {
+        this.data = res
+      })
     }
   }
 }
