@@ -7,7 +7,7 @@
     </form>
     <ul>
       <!-- v-for used in components -->
-      <todo-item v-for="(todo,index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" @remove="todos.splice(index, 1)">
+      <todo-item v-for="(todo,index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" @remove="remove(index)">
       </todo-item>
     </ul>
   </div>
@@ -45,6 +45,10 @@ export default {
       console.log(this.newTodoText)
       this.todos.push({id: this.nextTodoId++, title: this.newTodoText})
       this.newTodoText = ''
+    },
+    remove (index) {
+      console.log(index)
+      this.todos.splice(index, 1)
     }
   }
 }
