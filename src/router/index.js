@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import PropDemo from '@/components/PropDemo'
 import SlotDemo from '@/components/SlotDemo'
 import ToggleDemo from '@/components/Toggle'
+import TodoList from '@/components/TodoList'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/modal',
       name: 'ToggleDemo',
       component: ToggleDemo
+    },
+    {
+      path: '/todolist',
+      name: 'TodoList',
+      component: TodoList
     }
   ]
 })
